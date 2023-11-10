@@ -1,6 +1,7 @@
 package com.example.megalakes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView ot;
     public Button stt;
     Database db;
-    List<Origin> orig;
+    LiveData<Origin> orig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         t.start();
-
+*/
         ob.setOnClickListener((click) ->
         {
             Thread tt = new Thread(new Runnable() {
@@ -61,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             tt.start();
-            UpdateOrigins();
+            //UpdateOrigins();
         });
 
 
-         */
+
         Button b = findViewById(R.id.button2);
         b.setOnClickListener((clicl) ->
         {
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
     public void UpdateOrigins()
     {
         Thread t1 = new Thread(new Runnable() {
@@ -91,5 +93,9 @@ public class MainActivity extends AppCompatActivity {
         });
         t1.start();
     }
+
+
+     */
+
 
 }

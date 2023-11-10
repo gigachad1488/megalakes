@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Megalakes"
         tools:targetApi="32">
         <activity
-            android:name=".LakesActivity"
+            android:name=".OriginsActivity"
             android:exported="false" />
         <activity
             android:name=".AllTablesActivity"

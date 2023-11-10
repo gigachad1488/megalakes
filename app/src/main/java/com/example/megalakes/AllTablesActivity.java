@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import database.entities.Origin;
-
 public class AllTablesActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +17,7 @@ public class AllTablesActivity extends AppCompatActivity {
 
         b.setOnClickListener((click) ->
         {
-            Intent intent = new Intent(this, LakesActivity.class);
+            Intent intent = new Intent(this, OriginsActivity.class);
             startActivity(intent);
         });
     }

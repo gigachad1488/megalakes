@@ -40,4 +40,9 @@ public class OriginAdapter extends ArrayAdapter<Origin> {
         return view;
     }
 
+    public Origin getOriginAt(int i)
+    {
+        return origins.get(i);
+    }
+
 }
