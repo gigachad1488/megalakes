@@ -1,3 +1,5 @@
+package database.entities;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -6,13 +8,12 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Lake", foreignKeys = {@ForeignKey(entity = Place.class, parentColumns = "id", childColumns = "place_id"), @ForeignKey(entity = Origin.class, parentColumns = "id", childColumns = "origin_id"),
         @ForeignKey(entity = Salinity.class, parentColumns = "id", childColumns = "salinity_id"), @ForeignKey(entity = WaterBalance.class, parentColumns = "id", childColumns = "water_balance_id")},
-        indices = {@Index(value = {"@origin_id}"})
-, })
+        indices = {@Index(value = {"place_id"}), @Index(value = {"origin_id"}), @Index(value = {"water_balance_id"}), @Index(value = {"salinity_id"})})
 
 public class Lake
 {
     @PrimaryKey
-    private long id;
+    public long id;
 
     @ColumnInfo(name = "name")
     public String name;
@@ -34,4 +35,8 @@ public class Lake
 
     @ColumnInfo(name = "square")
     public int square;
+
+    public Lake(long id)
+    {
+    }
 }

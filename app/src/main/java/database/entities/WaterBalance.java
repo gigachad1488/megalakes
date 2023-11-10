@@ -1,3 +1,5 @@
+package database.entities;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -6,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class WaterBalance
 {
     @PrimaryKey
-    private long id;
+    public long id;
 
     @ColumnInfo(name = "type")
     public String type;
