@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Water_balance")
 public class WaterBalance
 {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public long id;
 
     @ColumnInfo(name = "type")

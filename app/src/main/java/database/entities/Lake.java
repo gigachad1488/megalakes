@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey;
 
 public class Lake
 {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public long id;
 
     @ColumnInfo(name = "name")

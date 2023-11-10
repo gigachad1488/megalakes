@@ -13,7 +13,7 @@ import database.entities.Salinity;
 @Dao
 public interface SalinityDAO
 {
-    @Insert
+    @Insert(onConflict = 2)
     public void insert(Salinity salinity);
     @Update
     public void update(Salinity salinity);

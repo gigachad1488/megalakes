@@ -16,7 +16,7 @@ import database.entities.Place;
 import database.entities.Salinity;
 import database.entities.WaterBalance;
 
-@androidx.room.Database(entities = {Lake.class, Origin.class, Place.class, Salinity.class, WaterBalance.class}, version = 1 )
+@androidx.room.Database(entities = {Lake.class, Origin.class, Place.class, Salinity.class, WaterBalance.class}, version = 3 )
 public abstract class Database extends RoomDatabase
 {
     public abstract LakeDAO lakeDao();
@@ -34,7 +34,7 @@ public abstract class Database extends RoomDatabase
             {
                 if (instance == null)
                 {
-                    instance = Room.databaseBuilder(context.getApplicationContext(), Database.class, "db").build();
+                    instance = Room.databaseBuilder(context.getApplicationContext(), Database.class, "db").fallbackToDestructiveMigration().allowMainThreadQueries().build();
                 }
             }
         }

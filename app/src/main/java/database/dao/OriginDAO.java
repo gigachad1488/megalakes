@@ -13,7 +13,7 @@ import database.entities.Origin;
 @Dao
 public interface OriginDAO
 {
-    @Insert
+    @Insert(onConflict = 2)
     public void insert(Origin origin);
     @Update
     public void update(Origin origin);

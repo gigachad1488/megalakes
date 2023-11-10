@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Megalakes"
         tools:targetApi="32">
         <activity
+            android:name=".LakesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllTablesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

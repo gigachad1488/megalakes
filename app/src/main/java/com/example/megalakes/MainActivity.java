@@ -2,6 +2,7 @@ package com.example.megalakes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
     public Button ob;
     public EditText oet;
     public TextView ot;
+    public Button stt;
     Database db;
+    List<Origin> orig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,26 +29,67 @@ public class MainActivity extends AppCompatActivity {
         ob = findViewById(R.id.updateOriginButton);
         oet = findViewById(R.id.editTextOrigin);
         ot = findViewById(R.id.originsText);
+        stt = findViewById(R.id.addButton);
 
-        ob.setOnClickListener((click) ->
+        /*
+
+
+        UpdateOrigins();
+
+        stt.setOnClickListener((click) ->
         {
-            Runnable io = () -> {
-                Origin or = new Origin();
-                or.origin = oet.getText().toString();
-                db.originDao().insert(or);
-
-                List<Origin> origins = db.originDao().getAllOrigins();
-                String s = "";
-                for (int i = 0; i < origins.size(); i++)
-                {
-                    s += origins.get(i).origin + "    ";
-                }
-                ot.setText(s);
-            };
-            io.run();
+            UpdateOrigins();
         });
 
 
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                orig = db.originDao().getAllOrigins();
+            }
+        });
+        t.start();
 
+        ob.setOnClickListener((click) ->
+        {
+            Thread tt = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Origin or = new Origin();
+                    or.origin = oet.getText().toString();
+                    db.originDao().insert(or);
+                }
+            });
+            tt.start();
+            UpdateOrigins();
+        });
+
+
+         */
+        Button b = findViewById(R.id.button2);
+        b.setOnClickListener((clicl) ->
+        {
+            Intent i = new Intent(this, AllTablesActivity.class);
+            startActivity(i);
+        });
     }
+
+    public void UpdateOrigins()
+    {
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                orig = db.originDao().getAllOrigins();
+                String s = "";
+                if (orig != null) {
+                    for (int i = 0; i < orig.size(); i++) {
+                        s += orig.get(i).origin + "\r\n";
+                    }
+                    ot.setText(s);
+                }
+            }
+        });
+        t1.start();
+    }
+
 }
